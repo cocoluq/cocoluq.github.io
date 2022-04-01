@@ -1,0 +1,125 @@
+/*Main color set
+Black: #2B2B29
+Pink: #DF405D
+Beige: #E9E9E1
+*/
+
+
+
+
+html{
+	font-size:calc(100vw / 120);
+}
+
+body{
+	background-color: #E9E9E1;
+}
+
+@font-face{
+  	font-family: "Glow Sans Extend Heavy";
+  	src: url("./assets/font/GlowSansJ-Extended-Heavy.otf");
+}
+@font-face{
+  	font-family: "Glow Sans Extend Bold";
+	src: url("assets/font/GlowSansJ-Extended-Bold.otf");
+}
+@font-face{
+  	font-family: "Glow Sans Wide Book";
+	src: url("assets/font/GlowSansJ-Wide-Book.otf");
+}
+	.logo{
+		position: absolute;
+		margin-right: 18.75rem;
+		margin-top: 1rem;
+		width: 14.125rem;
+		height: 12.5rem;
+		
+		}
+	#title {
+		z-index:999; 
+		font-family: "Dela Gothic One", "Glow Sans Extend Heavy","sans-serif";
+		color: #2B2B29;
+		text-align: center;
+		font-size: 8.5625rem;
+		margin-bottom: 0;
+		  }
+
+	.intro{
+		text-align: center;
+		font-family: "Glow Sans Wide Book","sans-serif";
+		letter-spacing: 0.1rem;
+		margin:0;
+		padding-top: 0;
+		padding-bottom: 9rem;
+		}
+
+	nav {
+   		width: 100%;	
+    	backface-visibility: hidden;
+   		position: fixed;
+		top:0;
+		font-family: "Glow Sans Extend Bold","Dela Gothic One", "sans-serif";
+		font-size: 1.5rem;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		   }
+
+	nav ul{
+		margin: 0;
+		padding: 0;
+		width: 100%;
+			}
+			nav li{
+				display: inline-grid;
+				
+				}
+
+	.about{
+		margin-right: 20rem;
+		margin-left: 1.15rem;
+				}
+	 .other-work{
+		padding-left: 10rem;
+				}
+	.illustration{
+		margin-left: 20rem;
+		margin-right:  10rem;
+				}
+			nav li a {
+    			color: #2B2B29;
+    			text-decoration: none;
+				}
+
+			nav li a:hover {
+				color: #4ACA6F;
+				}
+
+			nav li a:hover span{
+				color: #4ACA6F;
+				}
+
+			.contact {
+				color:#DF405D;
+				}
+
+			.contact:hover {
+				color:#4ACA6F;
+				}
+
+			.subtitle li {
+						display: flex;
+						margin-left: 20rem;
+						}
+			.slash{
+					color:#DF405D;
+					}
+
+		.demonstration{
+					text-align: center;
+					}
+
+			.demo01{
+					width: 70%;
+					text-align: center;
+					}
