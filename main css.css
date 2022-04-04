@@ -26,15 +26,25 @@ body{
 @font-face{
   	font-family: "Glow Sans Wide Book";
 	src: url("assets/font/GlowSansJ-Wide-Book.otf");
-}
+}	
+
+
 	.logo{
 		position: absolute;
 		margin-right: 18.75rem;
 		margin-top: 1rem;
 		width: 14.125rem;
 		height: 12.5rem;
-		
 		}
+
+	.logo-but-smaller{
+		width:6.21rem;
+		height:6.69rem;
+		position: absolute;
+		margin-top: 1rem;
+		margin-left: 1.15rem;
+	}
+
 	#title {
 		z-index:999; 
 		font-family: "Dela Gothic One", "Glow Sans Extend Heavy","sans-serif";
@@ -43,6 +53,14 @@ body{
 		font-size: 8.5625rem;
 		margin-bottom: 0;
 		  }
+
+	.title-but-smaller{
+		text-align: left;
+		margin-left: 10rem;
+		font-size: 4.25rem;
+		font-family: "Dela Gothic One", "Glow Sans Extend Heavy","sans-serif";
+		color:#2B2B29;
+	}
 
 	.intro{
 		text-align: center;
@@ -63,6 +81,7 @@ body{
 		margin: 0;
 		padding: 0;
 		white-space: nowrap;
+		z-index: 99;
 		   }
 
 	nav ul{
@@ -80,7 +99,7 @@ body{
 		margin-left: 1.15rem;
 				}
 	 .other-work{
-		padding-left: 10rem;
+		margin-left: 10rem;
 				}
 	.illustration{
 		margin-left: 20rem;
@@ -115,6 +134,23 @@ body{
 					color:#DF405D;
 					}
 
+		.right-botton-box{
+			position:relative;
+		}
+
+		.generic-page-title{
+			position:fixed;
+			text-align: right;
+			bottom: 0;
+			right: 0;
+			color: white;
+			font-family: "Glow Sans Extend Bold","Dela Gothic One", "sans-serif";
+			list-style: none;
+			font-size: 4.5rem;
+			z-index: -1;
+			line-height: 4rem;
+		}
+
 		.demonstration{
 					text-align: center;
 					}
@@ -123,3 +159,54 @@ body{
 					width: 70%;
 					text-align: center;
 					}
+
+	.footer{
+		position: relative;
+		min-height: 100%;
+}
+		.copyright{
+			text-align: center;
+			font-family: "Glow Sans Wide Book","sans-serif";
+			letter-spacing: 0.1rem;
+			margin-top: 10rem;
+			margin-bottom: 1rem;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: -1;
+			color: grey;
+		}
+
+		.container{
+			width: 77.7778%;
+			margin-top: 33.34vh;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/*About page*/
+		.title-in-page{
+			font-family: "Glow Sans Extend Bold", "sans-serif";
+			font-size: 3rem;
+			
+}
+		.inside-about-me{
+			font-size: 1.2rem;
+			font-family: "Glow Sans Wide Book","sans-serif";
+			
+}
+
+		.follow{
+			list-style: none;
+			padding: 0;
+			margin-bottom: 70rem;
+		}
+
+		.icon{
+			
+			float: left;
+			width: 2rem;
+			height: 2rem;
+			margin-right: 1.5rem;
+			padding: 0;
+		}
