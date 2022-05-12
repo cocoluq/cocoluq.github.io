@@ -98,7 +98,7 @@ body{
 		margin-right: 20rem;
 		margin-left: 1.15rem;
 				}
-	 .other-work{
+	.other-work{
 		margin-left: 10rem;
 				}
 	.illustration{
@@ -134,7 +134,7 @@ body{
 					color:#DF405D;
 					}
 
-		.right-botton-box{
+		.right-bottom-box{
 			position:relative;
 		}
 
@@ -211,3 +211,22 @@ body{
 			padding: 0;
 		}
 
+		/*Illustration page*/
+
+		.gallery
+		{
+			column-count: 3;
+			column-gap: 0.5rem;
+			width: 100%;
+			
+		}
+
+		.gallery img{
+			width: 77.7778%;
+			display: flex;
+			
+		}
+		.gallery-items{
+			break-inside: avoid;
+			margin-bottom: 1rem;
+		}
