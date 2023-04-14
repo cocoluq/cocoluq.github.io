@@ -276,44 +276,28 @@ body{
 			grid-column-end: span 3	;
 		}
 		
+		.container-title{
+			position: absolute;
+			animation: loop 3s infinite linear;
+			white-space: nowrap;
+		}
+			@keyframes loop {
+				0% {
+					transform: translateX(0);
+				}
+				
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
 		.title-of-works{
-			display: block;
+			display: inline-block;
 			margin-left: 1rem;
 			margin-right: 1rem;
 			font-size: 10rem;
-			z-index: 99;
-			position: absolute;
-			top: 0;
-			left: 0;
-			white-space: nowrap;
-			animation: scroll 3s linear infinite;
 		  }
-		  
-		  @keyframes scroll {
-			from {
-			  transform: translateX(0);
-			}
-			to {
-			  transform: translateX(-55%);
-			}
-		}
 
-		.white-arrow{
-			display: none;
-			z-index: 1;
-			position:absolute;
-			width: 70%;
-			height: 30%;
-			overflow: visible;
-			top: 0;
-			bottom: 0;
-			right: 10px;
-			margin: auto 0;
-		}
-		
-		.white-arrow:hover{
-			display: block;
-		}
 
 		.hvr-sweep-to-right {
 			display: inline-block;
