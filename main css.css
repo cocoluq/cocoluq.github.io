@@ -370,7 +370,7 @@ body{
 			transform: scaleX(1);
 		  }
 
-		  /* Styles for the lightbox container */
+		/* Styles for the lightbox container */
 		.lightbox {
 			display: none;
 			position: fixed;
