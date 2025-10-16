@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+	<link rel="icon" href="/assets/logo/logowithredeyewithouttext.ico" type="image/x-icon">
 	<title>TANTANGENT</title>
 	<link href="main css.css" rel="stylesheet" type="text/css" media="screen">
 	<link href="https://fonts.googleapis.com/css?family=Dela Gothic One" rel="stylesheet" type="text/css">
@@ -40,6 +41,14 @@
 		<div class="demonstration">
 		<img class="demo01" src="assets/img/firsttransation.jpg" alt="airplane" oncontextmenu="return false;">
 		</div>
+
+    <!-- lightbox 弹窗结构（添加到示例图片后，footer 前）-->
+    <div id="lightbox" style="display:none;">
+      <div class="lightbox-overlay" id="lightbox-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:1000;">
+        <button id="close-button" aria-label="关闭" style="position:absolute;top:20px;right:20px;font-size:28px;color:#fff;background:transparent;border:none;cursor:pointer;">&times;</button>
+        <img id="lightbox-image" src="" alt="" style="max-width:90%;max-height:90%;box-shadow:0 0 20px rgba(0,0,0,0.5);">
+      </div>
+    </div>
 
 <footer>
 	<p class="copyright">&copy; Tantangent. All rights reserved. <br>cocoluq@gmail.com</p>

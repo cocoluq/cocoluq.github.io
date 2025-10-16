@@ -371,27 +371,42 @@ body{
 		  }
 
 		/* Styles for the lightbox container */
-		.lightbox {
+		#lightbox {
 			display: none;
 			position: fixed;
-			top: 0;
-			left: 0;
+			inset: 0;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, 0.7);
+			background-color: rgba(0, 0, 0, 0.8);
 			text-align: center;
-			z-index: 1;
+			z-index: 2000; /* 提高层级，确保在顶层 */
+			pointer-events: auto;
 		}
 
-		/* Styles for the lightbox content */
+		/* 内层遮罩（若使用 id lightbox-overlay 或 class，可同时保留） */
+		#lightbox-overlay,
+		.lightbox-overlay {
+			position: fixed;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 2001;
+			background: transparent;
+		}
+
+		/* 图片内容 */
+		#lightbox-image,
 		.lightbox-content {
 			max-width: 90%;
 			max-height: 90%;
 			margin: auto;
 			display: block;
+			z-index: 2002;
 		}
 
-		/* Style for the close button */
+		/* 关闭按钮：匹配 id 和保留 class 兼容旧写法 */
+		#close-button,
 		.close-button {
 			position: absolute;
 			top: 20px;
@@ -399,4 +414,7 @@ body{
 			font-size: 30px;
 			cursor: pointer;
 			color: white;
+			background: transparent;
+			border: none;
+			z-index: 2003; /* 保证按钮在最上层 */
 		}
