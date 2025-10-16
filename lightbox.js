@@ -1,49 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取所有缩略图元素
     const galleryItems = document.querySelectorAll(".gallery-items");
-
-    // 获取lightbox元素和lightbox内容元素
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-image");
 
-    // 获取关闭按钮元素
-    const closeButton = document.getElementById("close-button");
+    function openLightbox(src) {
+        lightboxImg.src = src;
+        // 用 flex 以启用 CSS 的居中效果
+        lightbox.style.display = "flex";
+    }
 
-    // 添加点击事件处理程序来显示lightbox
+    function closeLightbox() {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+    }
+
     galleryItems.forEach(item => {
         item.addEventListener("click", function(event) {
-            event.preventDefault();
             const img = this.querySelector("img");
-            if (!img) return;
-            const fullImageSrc = img.src;
-            lightboxImg.src = fullImageSrc;
-            lightbox.style.display = "block";
+            if (!img) return; // 没有图片的格子（如“Books”链接）不弹出
+            event.preventDefault();
+            openLightbox(img.src);
         });
     });
 
-    if (closeButton) {
-        closeButton.addEventListener("click", function() {
-            lightbox.style.display = "none";
-            lightboxImg.src = "";
-        });
-    } else {
-        console.warn("close-button 未找到：请确认 index.html 中包含 id 为 close-button 的元素。");
-    }
+    // 点击遮罩（图片外区域）关闭
+    lightbox.addEventListener("click", function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
 
-    const overlay = document.getElementById("lightbox-overlay");
-    if (overlay) {
-        overlay.addEventListener("click", function(e) {
-            if (e.target === overlay) {
-                lightbox.style.display = "none";
-                lightboxImg.src = "";
-            }
-        });
-    }
-
+    // Esc 关闭
     document.addEventListener("keydown", function(e) {
         if (e.key === "Escape") {
-            lightbox.style.display = "none";
-            lightboxImg.src = "";
+            closeLightbox();
         }
     });
 });

@@ -76,7 +76,7 @@ body{
 
 	.typewriter{
 			overflow: hidden; /* Ensures the content is not revealed until the animation */
-			border-right: .15em solid #DF405D; /* The typewriter cursor */
+			border-right: 2px solid #DF405D; /* The typewriter cursor (was .15em) */
 			white-space: nowrap; /* Keeps the content on a single line */
 			margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 			animation: 
@@ -265,7 +265,7 @@ body{
 		.gallery-items{
 			padding: 0;
 			font-size: 1.2rem;
-			border-radius: 1rem;
+			border-radius: 16px; /* was 1rem */
 			background-color: #4ACA6F;
 			color:#2B2B29;
 			overflow: hidden;
@@ -372,37 +372,30 @@ body{
 
 		/* Styles for the lightbox container */
 		#lightbox {
+			/* 默认隐藏 */
 			display: none;
+
 			position: fixed;
 			inset: 0;
 			width: 100%;
 			height: 100%;
 			background-color: rgba(0, 0, 0, 0.8);
-			text-align: center;
-			z-index: 2000; /* 提高层级，确保在顶层 */
+			z-index: 2000;
 			pointer-events: auto;
-		}
 
-		/* 内层遮罩（若使用 id lightbox-overlay 或 class，可同时保留） */
-		#lightbox-overlay,
-		.lightbox-overlay {
-			position: fixed;
-			inset: 0;
-			display: flex;
+			/* 居中关键：flex 居中 */
 			align-items: center;
 			justify-content: center;
-			z-index: 2001;
-			background: transparent;
+			/* text-align 不再需要 */
 		}
 
-		/* 图片内容 */
+		/* 图片内容（保持已有的限制） */
 		#lightbox-image,
 		.lightbox-content {
 			max-width: 90%;
 			max-height: 90%;
-			margin: auto;
+			margin: 0;
 			display: block;
-			z-index: 2002;
 		}
 
 		/* 关闭按钮：匹配 id 和保留 class 兼容旧写法 */
