@@ -370,6 +370,89 @@ body{
 			transform: scaleX(1);
 		  }
 
+		/* =========================
+		Slideshow styles (moved from index.html) — 修改为 cover 填满框架
+		========================= */
+		.slideshow {
+			position: relative;
+			width: 1000px;      /* 外框固定宽度，按需修改 */
+			height: 600px;      /* 外框固定高度，按需修改 */
+			margin: 30px auto;
+			overflow: hidden;
+			border-radius: 6px;
+			background: #000;
+		}
+
+		.slides {
+			display: flex;
+			height: 100%;
+			transition: transform 0.6s ease;
+			will-change: transform;
+		}
+
+		.slide {
+			flex: 0 0 100%;
+			height: 100%;
+			box-sizing: border-box;
+			user-select: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		/* 填满外框且保持比例，不变形：宽高设为 100%，使用 object-fit: cover 裁切溢出部分 */
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;      /* <= 关键：保持比例并填满（可能裁切） */
+			object-position: center;/* 居中裁切 */
+			display: block;
+			pointer-events: none;
+		}
+
+		.nav-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: transparent; /* 去掉背景方块 */
+			color: #fff;
+			border: none;
+			padding: 8px;           /* 保持可点区域 */
+			min-width: 40px;
+			min-height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			font-size: 22px;       /* 使箭头更明显 */
+			border-radius: 50%;    /* 小圆形点击区（非必须） */
+			z-index: 10;
+			line-height: 1;
+			text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+		}
+
+		/* 可选：悬停显示更明显的圆形背景（若需完全无背景可删除下面规则） */
+		.nav-btn:hover,
+		.nav-btn:focus {
+			background: rgba(0,0,0,0.15);
+			outline: none;
+		}
+
+		.prev { left: 12px; }
+		.next { right: 12px; }
+
+		.dots { text-align: center; padding: 10px 0 0; }
+		.dot { display: inline-block; width: 10px; height: 10px; margin: 6px 6px; background: #bbb; border-radius: 50%; cursor: pointer; }
+		.dot.active { background: #333; }
+
+		/* 小屏自适应（可按需保留或删除以保持严格固定尺寸） */
+		@media (max-width: 1000px) {
+			.slideshow { width: 100%; height: 60vh; } /* 用视窗高度使小屏上仍可见比例 */
+			.slides { height: 100%; }
+			.slide img { width: 100%; height: 100%; object-fit: cover; }
+		}
+
 		/* Styles for the lightbox container */
 		#lightbox {
 			/* 默认隐藏 */
@@ -396,18 +479,4 @@ body{
 			max-height: 90%;
 			margin: 0;
 			display: block;
-		}
-
-		/* 关闭按钮：匹配 id 和保留 class 兼容旧写法 */
-		#close-button,
-		.close-button {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-			font-size: 30px;
-			cursor: pointer;
-			color: white;
-			background: transparent;
-			border: none;
-			z-index: 2003; /* 保证按钮在最上层 */
 		}

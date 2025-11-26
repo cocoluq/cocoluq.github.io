@@ -12,6 +12,7 @@
 		document.addEventListener('contextmenu', event => event.preventDefault());
 	</script>
 </head>
+
 <body>
 <header>
 	<!--Navigation Bar-->
@@ -38,9 +39,17 @@
 		</div>
 		<br>
 	<!--few big fine illustrations here-->	
-		<div class="demonstration">
-		<img class="demo01" src="assets/img/firsttransation.jpg" alt="airplane" oncontextmenu="return false;">
-		</div>
+		<!-- Slideshow -->
+    <div class="slideshow" id="slideshow" aria-roledescription="carousel">
+        <div class="slides" id="slides">
+            <div class="slide"><img src="assets/img/firsttransation.jpg" alt="slide 1" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/ocampo02.JPG" alt="slide 2" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/profile-img.png" alt="slide 3" oncontextmenu="return false;"></div>
+        </div>
+        <button class="nav-btn prev" id="prev" aria-label="上一张">&lsaquo;</button>
+        <button class="nav-btn next" id="next" aria-label="下一张">&rsaquo;</button>
+        <div class="dots" id="dots" aria-hidden="false"></div>
+    </div>
 
     <!-- lightbox 弹窗结构（添加到示例图片后，footer 前）-->
     <div id="lightbox" style="display:none;">
@@ -49,6 +58,75 @@
         <img id="lightbox-image" src="" alt="" style="max-width:90%;max-height:90%;box-shadow:0 0 20px rgba(0,0,0,0.5);">
       </div>
     </div>
+<!-- 轮播幻灯片脚本 -->
+<script>
+(function(){
+  const slidesEl = document.getElementById('slides');
+  if(!slidesEl) return;
+  const slides = Array.from(slidesEl.querySelectorAll('.slide'));
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const dotsEl = document.getElementById('dots');
+  if(slides.length <= 1){
+    if(prevBtn) prevBtn.style.display = 'none';
+    if(nextBtn) nextBtn.style.display = 'none';
+    if(dotsEl) dotsEl.style.display = 'none';
+    return;
+  }
+
+  let index = 0;
+  let timer = null;
+  const interval = 1500; // 自动播放间隔（ms）
+
+  // 生成指示点
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Slide ${i+1}`);
+    d.dataset.index = i;
+    d.addEventListener('click', () => { goTo(i); resetTimer(); });
+    d.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); resetTimer(); }
+    });
+    dotsEl.appendChild(d);
+  });
+
+  function update() {
+    slidesEl.style.transform = `translateX(-${index * 100}%)`;
+    Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+  function next() { index = (index + 1) % slides.length; update(); }
+  function prev() { index = (index - 1 + slides.length) % slides.length; update(); }
+  function goTo(i) { index = ((i % slides.length) + slides.length) % slides.length; update(); }
+
+  if(prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
+  if(nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+
+  function startTimer(){ stopTimer(); timer = setInterval(next, interval); }
+  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+  function resetTimer(){ stopTimer(); startTimer(); }
+
+  // 悬停 / 焦点暂停
+  const slideshowEl = document.getElementById('slideshow');
+  if(slideshowEl){
+    slideshowEl.addEventListener('mouseenter', stopTimer);
+    slideshowEl.addEventListener('mouseleave', startTimer);
+    slideshowEl.addEventListener('focusin', stopTimer);
+    slideshowEl.addEventListener('focusout', startTimer);
+  }
+
+  // 键盘支持
+  document.addEventListener('keydown', (e) => {
+    if(document.activeElement && ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if(e.key === 'ArrowLeft') { prev(); resetTimer(); }
+    if(e.key === 'ArrowRight') { next(); resetTimer(); }
+  });
+
+  // 启动
+  update();
+  startTimer();
+})();
+</script>
 
 <footer>
 	<p class="copyright">&copy; Tantangent. All rights reserved. <br>cocoluq@gmail.com</p>
