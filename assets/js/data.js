@@ -4,13 +4,63 @@ function normalizeTags(tags) {
   return tags.map((tag) => String(tag).trim().toLowerCase()).filter(Boolean);
 }
 
+function escapeControlCharactersInStrings(rawText) {
+  let result = "";
+  let inString = false;
+  let isEscaping = false;
+
+  for (const char of rawText) {
+    if (isEscaping) {
+      result += char;
+      isEscaping = false;
+      continue;
+    }
+
+    if (char === "\\") {
+      result += char;
+      if (inString) {
+        isEscaping = true;
+      }
+      continue;
+    }
+
+    if (char === "\"") {
+      inString = !inString;
+      result += char;
+      continue;
+    }
+
+    if (inString) {
+      if (char === "\n") {
+        result += "\\n";
+        continue;
+      }
+
+      if (char === "\r") {
+        result += "\\r";
+        continue;
+      }
+
+      if (char === "\t") {
+        result += "\\t";
+        continue;
+      }
+    }
+
+    result += char;
+  }
+
+  return result;
+}
+
 function parseProjectsText(rawText) {
   const withoutLineComments = rawText
     .split("\n")
     .filter((line) => !line.trim().startsWith("//"))
     .join("\n");
 
-  const withoutTrailingCommas = withoutLineComments.replace(/,\s*([}\]])/g, "$1");
+  const escapedControlCharacters = escapeControlCharactersInStrings(withoutLineComments);
+  const withoutTrailingCommas = escapedControlCharacters.replace(/,\s*([}\]])/g, "$1");
   return JSON.parse(withoutTrailingCommas);
 }
 
@@ -84,6 +134,20 @@ export function filterProjectsByPage(projects, pageType) {
     const hasIllustrationTag = project.tags.includes(ILLUSTRATION_TAG);
     return pageType === "illustration" ? hasIllustrationTag : !hasIllustrationTag;
   });
+}
+
+export function getProjectPreviewItems(projects) {
+  return projects.map((project) => ({
+    src: project.images[0],
+    projectImages: project.images,
+    title: project.title,
+    projectTitle: project.title,
+    tags: project.tags,
+    description: project.description,
+    imageIndex: 0,
+    year: project.year,
+    spanClass: project.imageLayouts[0] || ""
+  }));
 }
 
 export function flattenProjects(projects) {

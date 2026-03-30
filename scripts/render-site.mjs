@@ -14,13 +14,63 @@ const aboutCommentBlock = `
         </div> 
 -->`;
 
+function escapeControlCharactersInStrings(rawText) {
+  let result = "";
+  let inString = false;
+  let isEscaping = false;
+
+  for (const char of rawText) {
+    if (isEscaping) {
+      result += char;
+      isEscaping = false;
+      continue;
+    }
+
+    if (char === "\\") {
+      result += char;
+      if (inString) {
+        isEscaping = true;
+      }
+      continue;
+    }
+
+    if (char === "\"") {
+      inString = !inString;
+      result += char;
+      continue;
+    }
+
+    if (inString) {
+      if (char === "\n") {
+        result += "\\n";
+        continue;
+      }
+
+      if (char === "\r") {
+        result += "\\r";
+        continue;
+      }
+
+      if (char === "\t") {
+        result += "\\t";
+        continue;
+      }
+    }
+
+    result += char;
+  }
+
+  return result;
+}
+
 function parseProjectsText(rawText) {
   const withoutLineComments = rawText
     .split("\n")
     .filter((line) => !line.trim().startsWith("//"))
     .join("\n");
 
-  const withoutTrailingCommas = withoutLineComments.replace(/,\s*([}\]])/g, "$1");
+  const escapedControlCharacters = escapeControlCharactersInStrings(withoutLineComments);
+  const withoutTrailingCommas = escapedControlCharacters.replace(/,\s*([}\]])/g, "$1");
   return JSON.parse(withoutTrailingCommas);
 }
 
@@ -286,8 +336,10 @@ ${gallerySection}
 			<div class="lightbox" id="lightbox" aria-hidden="true" hidden>
 				<div class="lightbox-panel" data-lightbox-panel>
 					<button class="lightbox-close" type="button" aria-label="Close lightbox" data-lightbox-close>&times;</button>
-					<div class="lightbox-scroll" data-lightbox-scroll>
-						<div class="lightbox-gallery" data-lightbox-gallery></div>
+					<div class="lightbox-body">
+						<div class="lightbox-gallery-column" data-lightbox-scroll>
+							<div class="lightbox-gallery" data-lightbox-gallery></div>
+						</div>
 						<div class="lightbox-meta">
 							<h2 class="lightbox-title" data-lightbox-title></h2>
 							<p class="lightbox-tags" data-lightbox-tags></p>

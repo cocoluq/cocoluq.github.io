@@ -1,4 +1,4 @@
-import { loadProjects, filterProjectsByPage, flattenProjects } from "./data.js";
+import { loadProjects, filterProjectsByPage, flattenProjects, getProjectPreviewItems } from "./data.js";
 import { renderInitialGallery, appendGalleryItems, setupInfiniteScroll } from "./gallery.js";
 import { createLightboxController } from "./lightbox.js";
 
@@ -37,7 +37,9 @@ export async function initPortfolioPage({
   try {
     const projects = await loadProjects(dataUrl);
     const filteredProjects = filterProjectsByPage(projects, pageType);
-    const items = flattenProjects(filteredProjects);
+    const items = pageType === "other-works"
+      ? getProjectPreviewItems(filteredProjects)
+      : flattenProjects(filteredProjects);
 
     if (items.length === 0) {
       gallery.innerHTML = "";

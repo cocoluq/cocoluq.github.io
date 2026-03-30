@@ -1,5 +1,16 @@
 [
   {
+    "title": "What am i thinking when i study",
+    "year": 2025,
+    "tags": ["illustration","personal","animation"],
+    "images": [
+      "../assets/img/study.gif"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
     "title": "Rabbit with 4 eyes",
     "year": 2025,
     "tags": ["illustration","personal","comics"],
@@ -448,7 +459,7 @@
     "tags": ["illustration", "books"],
     "images": [
       "../assets/img/albo01.jpg",
-      "../assets/img/albo02.jpg",
+      "../assets/img/albo02.jpg"
     ],
     "imageLayouts": [
       "span-2",
@@ -485,78 +496,63 @@
       "span-3",
       "span-2"
     ]
+  },
+
+  {
+    "title": "Posters of the Birdwatching Festival",
+    "year": 2025,
+    "tags": ["graphic", "poster"],
+    "description": "This project defines the visual identity for a birdwatching festival, exploring the synergy between vector illustration and typographic layout to create an accessible, dynamic visual language.\nThe typography features a juxtaposition of a slender, elegant typeface with an organic, handwritten script. To enhance the tactile quality, I integrated handcrafted textures that evoke a sense of lightness and approachability. The color palette balances cool, luminous tones with earthy browns, directly referencing the natural environment.\nThe key vision centers on a horizontal poster inspired by community event banners. By adopting a more fluid and informal composition, I successfully avoided a rigid institutional tone while maintaining a clear information hierarchy to ensure readability.",
+    "images": [
+      "../assets/img/birdwatching_f01.jpg",
+      "../assets/img/birdwatching_f02.jpg",
+      "../assets/img/birdwatching_f03.jpg",
+      "../assets/img/birdwatching_f04.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "The Chinese Tin Toys",
+    "year": 2024,
+    "tags": ["graphic", "books"],
+    "description": "For the cover design, I drew inspiration from the visual architecture of vintage toy catalogs, emulating their signature layout and graphic style.\nThe color strategy directly references the product design of that era, characterized by high-saturation palettes and bold tonal contrasts. By prioritizing vibrant, warm hues, I created a dynamic and playful visual impact designed to capture immediate attention. This graphic approach successfully evokes a playful universe, establishing a seamless connection between the book's content and its visual storytelling.\n The color palette primarily utilizes vibrant red and luminous yellow in their purest tones. This deliberate combination draws upon the visual iconography associated with China, creating an immediate and intuitive link to the book's central theme.\n For the typography, I selected a clean, contemporary sans-serif typeface. To infuse the design with a playful character, I replaced specific elements within the letterforms with small stars, a graphic detail that not only reinforces the toy-inspired aesthetic but also adds a layer of whimsical charm to the overall composition.",
+    "images": [
+      "../assets/img/latta01.jpg",
+      "../assets/img/latta02.jpg",
+      "../assets/img/latta03.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "HeySong Sarsaparilla",
+    "year": 2025,
+    "tags": ["graphic", "packaging","logo"],
+    "description": "This project features a comprehensive packaging redesign for a beloved Taiwanese soft drink. Known for its light, crisp, and effervescent profile, this canned soda appeals to a broad demographic, with a strong following among younger consumers. \n To visually articulate the drink's refreshing qualities, the design incorporates geometric circular motifs and bubble-inspired textures. These elements act as a visual metaphor for the beverage's sparkle and fizz. Every typographic and color choice was strategically curated to project a modern, trend-driven image that resonates with the dynamic energy of today's youth culture.",
+    "images": [
+      "../assets/img/heysong01.jpg",
+      "../assets/img/heysong02.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Pure Rice Brewing",
+    "year": 2025,
+    "tags": ["graphic", "packaging"],
+    "description": "This project involves the packaging design for a premium Junmai (pure rice) sake, encompassing both the bottle label and a custom carrier bag.\n My creative process began with a visual analysis of rice-based spirits, identifying a distinct trend toward delicate, desaturated color palettes: such as beige, white, and silver, to communicate purity and elegance.\n Adopting this direction, I utilized expansive minimalist surfaces to evoke a sense of cultural refinement. This aesthetic is complemented by a slender serif typeface and graphic motifs that highlight the graceful, elongated forms of rice grains, reinforcing the product's artisanal value and sophisticated character.",
+    "images": [
+      "../assets/img/ricewine01.jpg",
+      "../assets/img/ricewine02.jpg",
+      "../assets/img/ricewine03.png",
+      "../assets/img/ricewine04.png"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
   }
-  // Design part
-  // {
-  //   "title": "Books and Posters",
-  //   "year": 2024,
-  //   "tags": ["illustration", "books", "poster"],
-  //   "description": "Illustration work spanning posters, covers, and visual storytelling pieces.",
-  //   "images": [
-  //     "../assets/img/parasite01.jpeg",
-  //     "../assets/img/shi.jpg",
-  //     "../assets/img/banner.jpg",
-  //     "../assets/img/firsttransation.jpg",
-  //     "../assets/img/tianqingle.jpg",
-  //     "../assets/img/doodle01.jpg"
-  //   ],
-  //   "imageLayouts": [
-  //     "span-1",
-  //     "",
-  //     "span-3",
-  //     "span-2",
-  //     "span-4",
-  //     ""
-  //   ]
-  // },
-  // {
-  //   "title": "Profile and Study Work",
-  //   "year": 2023,
-  //   "tags": ["illustration", "personal"],
-  //   "description": "Personal studies and portrait-based illustration explorations.",
-  //   "images": [
-  //     "../assets/img/cutoff/profile-img-cut-off01.jpg",
-  //     "../assets/img/profile-img.png",
-  //     "../assets/img/ocampo03.jpg"
-  //   ],
-  //   "imageLayouts": [
-  //     "",
-  //     "span-2",
-  //     ""
-  //   ]
-  // },
-  // {
-  //   "title": "Graphic Design Experiments",
-  //   "year": 2024,
-  //   "tags": ["design", "branding", "print"],
-  //   "description": "A collection of graphic design and print-oriented experiments.",
-  //   "images": [
-  //     "../assets/img/tesi01.jpg",
-  //     "../assets/img/tesi02.jpg",
-  //     "../assets/img/fuoco.jpg",
-  //     "../assets/img/PlasticBag.jpg"
-  //   ],
-  //   "imageLayouts": [
-  //     "span-2",
-  //     "",
-  //     "span-3",
-  //     ""
-  //   ]
-  // },
-  // {
-  //   "title": "Material Studies",
-  //   "year": 2023,
-  //   "tags": ["installation", "material", "experiment"],
-  //   "description": "Material-driven visual studies that sit outside the illustration category.",
-  //   "images": [
-  //     "../assets/img/cr.jpg",
-  //     "../assets/img/doodle02.jpg",
-  //     "../assets/img/ocampo01.JPG"
-  //   ],
-  //   "imageLayouts": [
-  //     "",
-  //     "span-2",
-  //     ""
-  //   ]
-  // }
 ]
