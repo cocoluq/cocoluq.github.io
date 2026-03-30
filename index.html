@@ -37,18 +37,20 @@
 	<!--main structure-->
 		<a href="https://cocoluq.github.io/"><img src="assets/logo/logowithredeye.svg" class="logo" alt="logo"></a>
 		<h1 id="title" onselectstart="return false;">TANTANGENT</h1>
-		<div class="intro"><p class="typewriter">Hello there, I'm a Bologna based illustrator/designer.</p>
+		<div class="intro">
+		<p class="typewriter typewriter-line-1">Hello there, I'm a Bologna based illustrator/designer.</p>
+		<p class="typewriter typewriter-line-2">Here're some of my recent works, hope you like them!</p>
 		</div>
 		<br>
 	<!--few big fine illustrations here-->	
 		<!-- Slideshow -->
     <div class="slideshow" id="slideshow" aria-roledescription="carousel">
         <div class="slides" id="slides">
-            <div class="slide"><img src="assets/img/studio.jpg" alt="Studio" oncontextmenu="return false;"></div>
-            <div class="slide"><img src="assets/img/albo01.jpg" alt="albo" oncontextmenu="return false;"></div>
-            <div class="slide"><img src="assets/img/tianqingle.jpg" alt="Postcard" oncontextmenu="return false;"></div>
-            <div class="slide"><img src="assets/img/shi.jpg" alt="Album cover" oncontextmenu="return false;"></div>
-            <div class="slide"><img src="assets/img/profile-img.png" alt="Girl with flamingo" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/tiangou.jpg" alt="Tiangou eating the moon" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/img187.jpg" alt="Introduction" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/rabbit.jpg" alt="Rabbit with 4 eyes" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/park.jpg" alt="Human Needs Park" oncontextmenu="return false;"></div>
+            <div class="slide"><img src="assets/img/shu.jpg" alt="Cat Portrait" oncontextmenu="return false;"></div>
         </div>
         <button class="nav-btn prev" id="prev" aria-label="Previous slide">&lsaquo;</button>
         <button class="nav-btn next" id="next" aria-label="Next slide">&rsaquo;</button>
@@ -62,70 +64,7 @@
         <img id="lightbox-image" src="" alt="" style="max-width:90%;max-height:90%;box-shadow:0 0 20px rgba(0,0,0,0.5);">
       </div>
     </div>
-<script>
-(function(){
-  const slidesEl = document.getElementById('slides');
-  if(!slidesEl) return;
-  const slides = Array.from(slidesEl.querySelectorAll('.slide'));
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  const dotsEl = document.getElementById('dots');
-  if(slides.length <= 1){
-    if(prevBtn) prevBtn.style.display = 'none';
-    if(nextBtn) nextBtn.style.display = 'none';
-    if(dotsEl) dotsEl.style.display = 'none';
-    return;
-  }
-
-  let index = 0;
-  let timer = null;
-  const interval = 1500;
-
-  slides.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i + 1));
-    d.dataset.index = i;
-    d.addEventListener('click', () => { goTo(i); resetTimer(); });
-    d.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); resetTimer(); }
-    });
-    dotsEl.appendChild(d);
-  });
-
-  function update() {
-    slidesEl.style.transform = 'translateX(-' + (index * 100) + '%)';
-    Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === index));
-  }
-  function next() { index = (index + 1) % slides.length; update(); }
-  function prev() { index = (index - 1 + slides.length) % slides.length; update(); }
-  function goTo(i) { index = ((i % slides.length) + slides.length) % slides.length; update(); }
-
-  if(prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
-  if(nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
-
-  function startTimer(){ stopTimer(); timer = setInterval(next, interval); }
-  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
-  function resetTimer(){ stopTimer(); startTimer(); }
-
-  const slideshowEl = document.getElementById('slideshow');
-  if(slideshowEl){
-    slideshowEl.addEventListener('mouseenter', stopTimer);
-    slideshowEl.addEventListener('mouseleave', startTimer);
-    slideshowEl.addEventListener('focusin', stopTimer);
-    slideshowEl.addEventListener('focusout', startTimer);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if(document.activeElement && ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
-    if(e.key === 'ArrowLeft') { prev(); resetTimer(); }
-    if(e.key === 'ArrowRight') { next(); resetTimer(); }
-  });
-
-  update();
-  startTimer();
-})();
-</script>
+<script type="module" src="assets/js/home-slideshow.js"></script>
 <footer>
 	<div class="footer"><p class="copyright">&copy; Tantangent. All rights reserved. <br>cocoluq@gmail.com</p></div>
 </footer>

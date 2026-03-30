@@ -40,6 +40,7 @@ function validateProject(project, index, seenTitles) {
   return {
     ...project,
     id: `project-${index + 1}`,
+    originalIndex: index,
     title,
     year: Number(project.year) || new Date().getFullYear(),
     description: String(project.description ?? "").trim(),
@@ -99,4 +100,18 @@ export function flattenProjects(projects) {
       spanClass: project.imageLayouts[imageIndex] || ""
     }))
   );
+}
+
+export function normalizeProjectImagePath(imagePath) {
+  return String(imagePath).trim().replace(/^\.\.\//, "");
+}
+
+export function rankProjectsByRecency(projects) {
+  return [...projects].sort((a, b) => {
+    if (b.year !== a.year) {
+      return b.year - a.year;
+    }
+
+    return a.originalIndex - b.originalIndex;
+  });
 }

@@ -35,24 +35,13 @@ async function getLatestHomeSlides() {
         return null;
       }
 
-      const imageEntries = await Promise.all(
-        images.map(async (imagePath) => {
-          const normalizedPath = String(imagePath).replace(/^\.\.\//, "");
-          const fullPath = resolve(rootDir, normalizedPath);
-          const fileStat = await stat(fullPath);
-          return {
-            src: normalizedPath.replace(/\\/g, "/"),
-            modifiedAt: fileStat.mtimeMs
-          };
-        })
-      );
-
-      imageEntries.sort((a, b) => b.modifiedAt - a.modifiedAt);
-      const latestImage = imageEntries[0];
+      const normalizedPath = String(images[0]).replace(/^\.\.\//, "");
+      const fullPath = resolve(rootDir, normalizedPath);
+      const fileStat = await stat(fullPath);
       return {
-        src: latestImage.src,
+        src: normalizedPath.replace(/\\/g, "/"),
         alt: project.title,
-        modifiedAt: latestImage.modifiedAt
+        modifiedAt: fileStat.mtimeMs
       };
     })
   );
@@ -128,10 +117,19 @@ function renderPortfolioBootstrap() {
 
 async function renderHomePage() {
   const slideshowItems = await getLatestHomeSlides();
+  const introLines = Array.isArray(homePage.introLines) && homePage.introLines.length > 0
+    ? homePage.introLines
+    : [homePage.intro].filter(Boolean);
   const slides = slideshowItems
     .map(
       (slide) =>
         `            <div class="slide"><img src="${slide.src}" alt="${slide.alt}" oncontextmenu="return false;"></div>`
+    )
+    .join("\n");
+  const introMarkup = introLines
+    .map(
+      (line, index) =>
+        `\t\t<p class="typewriter typewriter-line-${index + 1}">${line}</p>`
     )
     .join("\n");
 
@@ -152,7 +150,8 @@ ${renderHead({
 	<!--main structure-->
 		<a href="${siteMeta.siteUrl}"><img src="assets/logo/logowithredeye.svg" class="logo" alt="logo"></a>
 		<h1 id="title" onselectstart="return false;">${siteMeta.title}</h1>
-		<div class="intro"><p class="typewriter">${homePage.intro}</p>
+		<div class="intro">
+${introMarkup}
 		</div>
 		<br>
 	<!--few big fine illustrations here-->	
@@ -173,70 +172,7 @@ ${slides}
         <img id="lightbox-image" src="" alt="" style="max-width:90%;max-height:90%;box-shadow:0 0 20px rgba(0,0,0,0.5);">
       </div>
     </div>
-<script>
-(function(){
-  const slidesEl = document.getElementById('slides');
-  if(!slidesEl) return;
-  const slides = Array.from(slidesEl.querySelectorAll('.slide'));
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  const dotsEl = document.getElementById('dots');
-  if(slides.length <= 1){
-    if(prevBtn) prevBtn.style.display = 'none';
-    if(nextBtn) nextBtn.style.display = 'none';
-    if(dotsEl) dotsEl.style.display = 'none';
-    return;
-  }
-
-  let index = 0;
-  let timer = null;
-  const interval = 1500;
-
-  slides.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i + 1));
-    d.dataset.index = i;
-    d.addEventListener('click', () => { goTo(i); resetTimer(); });
-    d.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); resetTimer(); }
-    });
-    dotsEl.appendChild(d);
-  });
-
-  function update() {
-    slidesEl.style.transform = 'translateX(-' + (index * 100) + '%)';
-    Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === index));
-  }
-  function next() { index = (index + 1) % slides.length; update(); }
-  function prev() { index = (index - 1 + slides.length) % slides.length; update(); }
-  function goTo(i) { index = ((i % slides.length) + slides.length) % slides.length; update(); }
-
-  if(prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
-  if(nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
-
-  function startTimer(){ stopTimer(); timer = setInterval(next, interval); }
-  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
-  function resetTimer(){ stopTimer(); startTimer(); }
-
-  const slideshowEl = document.getElementById('slideshow');
-  if(slideshowEl){
-    slideshowEl.addEventListener('mouseenter', stopTimer);
-    slideshowEl.addEventListener('mouseleave', startTimer);
-    slideshowEl.addEventListener('focusin', stopTimer);
-    slideshowEl.addEventListener('focusout', startTimer);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if(document.activeElement && ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
-    if(e.key === 'ArrowLeft') { prev(); resetTimer(); }
-    if(e.key === 'ArrowRight') { next(); resetTimer(); }
-  });
-
-  update();
-  startTimer();
-})();
-</script>
+<script type="module" src="assets/js/home-slideshow.js"></script>
 ${renderFooter()}
 </body>
 </html>

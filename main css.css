@@ -4,6 +4,13 @@ Pink: #DF405D
 Beige: #E9E9E1
 */
 
+:root{
+	--black: #2B2B29;
+	--pink: #DF405D;
+	--beige: #E9E9E1;
+	--green: #4ACA6F;
+}
+
 
 
 
@@ -12,7 +19,7 @@ html{
 }
 
 body{
-	background-color: #E9E9E1;
+	background-color: var(--beige);
 }
 
 @font-face{
@@ -49,7 +56,7 @@ body{
 	#title{
 		z-index:999; 
 		font-family: "Dela Gothic One", "Glow Sans Extend Heavy","sans-serif";
-		color: #2B2B29;
+		color: var(--black);
 		text-align: center;
 		font-size: 8.5625rem;
 		margin-bottom: 0;
@@ -60,7 +67,7 @@ body{
 		margin-left: 10rem;
 		font-size: 4.25rem;
 		font-family: "Dela Gothic One", "Glow Sans Extend Heavy","sans-serif";
-		color:#2B2B29;
+		color: var(--black);
 	}
 
 	.intro{
@@ -76,13 +83,29 @@ body{
 
 	.typewriter{
 			overflow: hidden; /* Ensures the content is not revealed until the animation */
-			border-right: 2px solid #DF405D; /* The typewriter cursor (was .15em) */
+			border-right: 2px solid transparent; /* The typewriter cursor (was .15em) */
 			white-space: nowrap; /* Keeps the content on a single line */
 			margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-			animation: 
-			  typing 3.5s steps(40, end),
-			  blink-caret .75s step-end infinite;
+			display: block;
+			width: 0;
+			animation-name: typing, blink-caret;
+			animation-duration: 3.5s, .75s;
+			animation-timing-function: steps(40, end), step-end;
+			animation-fill-mode: forwards, none;
+			animation-iteration-count: 1, 5;
 		  }
+
+	.typewriter + .typewriter{
+			margin-top: 0.5rem;
+	}
+
+	.typewriter-line-1{
+			animation-delay: 0s, 0s;
+	}
+
+	.typewriter-line-2{
+			animation-delay: 3.5s, 3.5s;
+	}
 		  
 		  /* The typing effect */
 		  @keyframes typing {
@@ -93,7 +116,7 @@ body{
 		  /* The typewriter cursor effect */
 		  @keyframes blink-caret {
 			from, to { border-color: transparent }
-			50% { border-color:#DF405D; }
+			50% { border-color: var(--pink); }
 		  }
 
 	nav{
@@ -129,16 +152,16 @@ body{
 		margin-right:  10rem;
 				}
 			nav li a {
-    			color: #2B2B29;
+    			color: var(--black);
     			text-decoration: none;
 				}
 
 			nav li a:hover {
-				color: #4ACA6F;
+				color: var(--green);
 				}
 
 			nav li a.nav-active {
-				color: #4ACA6F;
+				color: var(--green);
 				}
 
 			nav li a.nav-active span,
@@ -147,19 +170,19 @@ body{
 			body[data-page-type="illustration"] nav li a.illustration,
 			body[data-page-type="other-works"] nav li a.other-works,
 			body[data-page-type="playground"] nav li a.playground {
-				color: #4ACA6F !important;
+				color: var(--green) !important;
 				}
 
 			nav li a:hover span{
-				color: #4ACA6F;
+				color: var(--green);
 				}
 
 			.contact {
-				color:#DF405D;
+				color: var(--pink);
 				}
 
 			.contact:hover {
-				color:#4ACA6F;
+				color: var(--green);
 				}
 
 			.subtitle li {
@@ -167,7 +190,7 @@ body{
 						margin-left: 20rem;
 						}
 			.slash{
-					color:#DF405D;
+					color: var(--pink);
 					}
 
 		.right-bottom-box{
@@ -279,8 +302,8 @@ body{
 			padding: 0;
 			font-size: 1.2rem;
 			border-radius: 16px; /* was 1rem */
-			background-color: #4ACA6F;
-			color:#2B2B29;
+			background-color: var(--green);
+			color: var(--black);
 			overflow: hidden;
 			text-align: start;
 			position: relative;
@@ -393,7 +416,7 @@ body{
 			margin: 30px auto;
 			overflow: hidden;
 			border-radius: 6px;
-			background: #000;
+			background: transparent;
 		}
 
 		.slides {
@@ -411,15 +434,18 @@ body{
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			padding: 2rem;
 			overflow: hidden;
 		}
 
 		/* 填满外框且保持比例，不变形：宽高设为 100%，使用 object-fit: cover 裁切溢出部分 */
 		.slide img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;      /* <= 关键：保持比例并填满（可能裁切） */
-			object-position: center;/* 居中裁切 */
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+			object-position: center;
 			display: block;
 			pointer-events: none;
 		}
@@ -429,26 +455,27 @@ body{
 			top: 50%;
 			transform: translateY(-50%);
 			background: transparent; /* 去掉背景方块 */
-			color: #fff;
+			color: var(--pink);
 			border: none;
-			padding: 8px;           /* 保持可点区域 */
-			min-width: 40px;
-			min-height: 40px;
+			padding: 16px;           /* 保持可点区域 */
+			min-width: 80px;
+			min-height: 80px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			cursor: pointer;
-			font-size: 22px;       /* 使箭头更明显 */
+			font-size: 44px;       /* 使箭头更明显 */
 			border-radius: 50%;    /* 小圆形点击区（非必须） */
 			z-index: 10;
 			line-height: 1;
-			text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+			text-shadow: none;
 		}
 
 		/* 可选：悬停显示更明显的圆形背景（若需完全无背景可删除下面规则） */
 		.nav-btn:hover,
 		.nav-btn:focus {
-			background: rgba(0,0,0,0.15);
+			background: transparent;
+			color: var(--green);
 			outline: none;
 		}
 
@@ -463,7 +490,8 @@ body{
 		@media (max-width: 1000px) {
 			.slideshow { width: 100%; height: 60vh; } /* 用视窗高度使小屏上仍可见比例 */
 			.slides { height: 100%; }
-			.slide img { width: 100%; height: 100%; object-fit: cover; }
+			.slide { padding: 1.25rem; }
+			.slide img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
 		}
 
 		/* Styles for the lightbox container */
@@ -520,7 +548,7 @@ body{
 
 		.gallery-item-overlay-content {
 			text-align: center;
-			color: #2B2B29;
+			color: var(--black);
 			max-width: 90%;
 		}
 
@@ -547,7 +575,7 @@ body{
 			font-family: "Glow Sans Wide Book","sans-serif";
 			font-size: 1rem;
 			letter-spacing: 0.08rem;
-			color: #2B2B29;
+			color: var(--black);
 			margin-top: 2rem;
 		}
 
@@ -593,7 +621,7 @@ body{
 			width: min(64%, 62rem);
 			max-height: 88vh;
 			overflow: hidden;
-			background: #E9E9E1;
+			background: var(--beige);
 			border-radius: 1.5rem;
 			background-clip: padding-box;
 			box-sizing: border-box;
@@ -617,7 +645,7 @@ body{
 			border: none;
 			border-radius: 999px;
 			background: transparent;
-			color: #2B2B29;
+			color: var(--black);
 			font-size: 1.75rem;
 			cursor: pointer;
 		}
@@ -647,7 +675,7 @@ body{
 		.lightbox-meta {
 			width: 88%;
 			margin: 0 auto;
-			color: #2B2B29;
+			color: var(--black);
 		}
 
 		.lightbox-title {
@@ -665,7 +693,7 @@ body{
 
 		.lightbox-tags {
 			margin-bottom: 0.85rem;
-			color: #DF405D;
+			color: var(--pink);
 		}
 
 		.lightbox-description {

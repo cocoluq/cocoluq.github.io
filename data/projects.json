@@ -57,7 +57,7 @@
     "imageLayouts": [
       "span-3",
       "span-2",
-      "span-2",
+      "span-3",
       "",
       "span-2",
       "",
@@ -345,7 +345,7 @@
     "year": 2024,
     "tags": ["illustration"],
     "images": [
-      "../assets/img/biblioteca.jpg"
+      "../assets/img/Biblioteca.jpg"
     ],
     "imageLayouts": [
       "span-4"

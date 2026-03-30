@@ -37,7 +37,10 @@ export const navigationItems = [
 ];
 
 export const homePage = {
-  intro: "Hello there, I'm a Bologna based illustrator/designer.",
+  introLines: [
+    "Hello there, I'm a Bologna based illustrator/designer.",
+    "Here're some of my recent works, hope you like them!"
+  ],
   slideshow: [
     { src: "assets/img/firsttransation.jpg", alt: "slide 1" },
     { src: "assets/img/ocampo02.JPG", alt: "slide 2" },
