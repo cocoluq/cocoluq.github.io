@@ -137,6 +137,19 @@ body{
 				color: #4ACA6F;
 				}
 
+			nav li a.nav-active {
+				color: #4ACA6F;
+				}
+
+			nav li a.nav-active span,
+			body[data-page-type="about"] nav li a.about,
+			body[data-page-type="about"] nav li a.about span,
+			body[data-page-type="illustration"] nav li a.illustration,
+			body[data-page-type="other-works"] nav li a.other-works,
+			body[data-page-type="playground"] nav li a.playground {
+				color: #4ACA6F !important;
+				}
+
 			nav li a:hover span{
 				color: #4ACA6F;
 				}
@@ -370,6 +383,89 @@ body{
 			transform: scaleX(1);
 		  }
 
+		/* =========================
+		Slideshow styles (moved from index.html) — 修改为 cover 填满框架
+		========================= */
+		.slideshow {
+			position: relative;
+			width: 1000px;      /* 外框固定宽度，按需修改 */
+			height: 600px;      /* 外框固定高度，按需修改 */
+			margin: 30px auto;
+			overflow: hidden;
+			border-radius: 6px;
+			background: #000;
+		}
+
+		.slides {
+			display: flex;
+			height: 100%;
+			transition: transform 0.6s ease;
+			will-change: transform;
+		}
+
+		.slide {
+			flex: 0 0 100%;
+			height: 100%;
+			box-sizing: border-box;
+			user-select: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		/* 填满外框且保持比例，不变形：宽高设为 100%，使用 object-fit: cover 裁切溢出部分 */
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;      /* <= 关键：保持比例并填满（可能裁切） */
+			object-position: center;/* 居中裁切 */
+			display: block;
+			pointer-events: none;
+		}
+
+		.nav-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: transparent; /* 去掉背景方块 */
+			color: #fff;
+			border: none;
+			padding: 8px;           /* 保持可点区域 */
+			min-width: 40px;
+			min-height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			font-size: 22px;       /* 使箭头更明显 */
+			border-radius: 50%;    /* 小圆形点击区（非必须） */
+			z-index: 10;
+			line-height: 1;
+			text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+		}
+
+		/* 可选：悬停显示更明显的圆形背景（若需完全无背景可删除下面规则） */
+		.nav-btn:hover,
+		.nav-btn:focus {
+			background: rgba(0,0,0,0.15);
+			outline: none;
+		}
+
+		.prev { left: 12px; }
+		.next { right: 12px; }
+
+		.dots { text-align: center; padding: 10px 0 0; }
+		.dot { display: inline-block; width: 10px; height: 10px; margin: 6px 6px; background: #bbb; border-radius: 50%; cursor: pointer; }
+		.dot.active { background: #333; }
+
+		/* 小屏自适应（可按需保留或删除以保持严格固定尺寸） */
+		@media (max-width: 1000px) {
+			.slideshow { width: 100%; height: 60vh; } /* 用视窗高度使小屏上仍可见比例 */
+			.slides { height: 100%; }
+			.slide img { width: 100%; height: 100%; object-fit: cover; }
+		}
+
 		/* Styles for the lightbox container */
 		#lightbox {
 			/* 默认隐藏 */
@@ -398,16 +494,262 @@ body{
 			display: block;
 		}
 
-		/* 关闭按钮：匹配 id 和保留 class 兼容旧写法 */
-		#close-button,
-		.close-button {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-			font-size: 30px;
+		.gallery-items,
+		.gallery-card {
 			cursor: pointer;
-			color: white;
-			background: transparent;
+			grid-column: span 3;
+			min-height: 14rem;
+		}
+
+		.gallery-card img {
+			transition: transform 240ms ease-out, filter 240ms ease-out;
+		}
+
+		.gallery-item-overlay {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1.5rem;
+			background: rgba(74, 202, 111, 0.3);
+			opacity: 0;
+			transition: opacity 240ms ease-out;
+			pointer-events: none;
+		}
+
+		.gallery-item-overlay-content {
+			text-align: center;
+			color: #2B2B29;
+			max-width: 90%;
+		}
+
+		.gallery-item-title,
+		.gallery-item-tags {
+			margin: 0;
+			text-transform: uppercase;
+		}
+
+		.gallery-item-title {
+			font-family: "Glow Sans Extend Bold", "sans-serif";
+			font-size: 1rem;
+			letter-spacing: 0.08rem;
+			margin-bottom: 0.45rem;
+		}
+
+		.gallery-item-tags {
+			font-family: "Glow Sans Wide Book","sans-serif";
+			font-size: 0.85rem;
+			letter-spacing: 0.06rem;
+		}
+
+		.gallery-empty-state {
+			font-family: "Glow Sans Wide Book","sans-serif";
+			font-size: 1rem;
+			letter-spacing: 0.08rem;
+			color: #2B2B29;
+			margin-top: 2rem;
+		}
+
+		.gallery-sentinel {
+			width: 100%;
+			height: 1px;
+		}
+
+		.gallery-loading-note {
+			font-family: "Glow Sans Wide Book","sans-serif";
+			font-size: 0.9rem;
+			letter-spacing: 0.08rem;
+			color: grey;
+			margin-top: 1rem;
+		}
+
+		.lightbox {
+			display: none;
+			position: fixed;
+			inset: 0;
+			background: rgba(44, 44, 44, 0.92);
+			align-items: center;
+			justify-content: center;
+			padding: 2rem;
+			z-index: 3000;
+		}
+
+		.lightbox.is-open {
+			display: flex;
+		}
+
+		#lightbox.is-open {
+			display: flex !important;
+		}
+
+		#lightbox[hidden],
+		.lightbox[hidden] {
+			display: none !important;
+		}
+
+		.lightbox-panel {
+			position: relative;
+			width: min(64%, 62rem);
+			max-height: 88vh;
+			overflow: hidden;
+			background: #E9E9E1;
+			border-radius: 1.5rem;
+			background-clip: padding-box;
+			box-sizing: border-box;
+			box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.25);
+		}
+
+		.lightbox-scroll {
+			max-height: 88vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding: 2.25rem 2.25rem 2rem;
+			box-sizing: border-box;
+		}
+
+		.lightbox-close {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			width: 2.5rem;
+			height: 2.5rem;
 			border: none;
-			z-index: 2003; /* 保证按钮在最上层 */
+			border-radius: 999px;
+			background: transparent;
+			color: #2B2B29;
+			font-size: 1.75rem;
+			cursor: pointer;
+		}
+
+		.lightbox-figure {
+			margin: 0;
+		}
+
+		.lightbox-gallery {
+			width: 100%;
+		}
+
+		.lightbox-image-frame {
+			margin: 0 0 4lh;
+			text-align: center;
+		}
+
+		.lightbox-content {
+			width: auto;
+			max-width: 80%;
+			height: auto;
+			max-height: none;
+			margin: 0 auto;
+			object-fit: contain;
+		}
+
+		.lightbox-meta {
+			width: 88%;
+			margin: 0 auto;
+			color: #2B2B29;
+		}
+
+		.lightbox-title {
+			font-family: "Glow Sans Extend Bold", "sans-serif";
+			font-size: 1.8rem;
+			margin: 0 0 0.5rem;
+		}
+
+		.lightbox-tags,
+		.lightbox-description {
+			font-family: "Glow Sans Wide Book","sans-serif";
+			margin: 0;
+			letter-spacing: 0.05rem;
+		}
+
+		.lightbox-tags {
+			margin-bottom: 0.85rem;
+			color: #DF405D;
+		}
+
+		.lightbox-description {
+			line-height: 1.65;
+		}
+
+		body.lightbox-open {
+			overflow: hidden;
+		}
+
+		@media (hover: hover) and (pointer: fine) {
+			.gallery-card:hover img,
+			.gallery-card:focus-visible img {
+				transform: scale(1.05);
+				filter: blur(4px);
+			}
+
+			.gallery-card:hover .gallery-item-overlay,
+			.gallery-card:focus-visible .gallery-item-overlay {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: 1400px) {
+			.gallery {
+				grid-template-columns: repeat(12, minmax(0, 1fr));
+			}
+		}
+
+		@media (min-width: 1000px) and (max-width: 1399px) {
+			.gallery {
+				grid-template-columns: repeat(9, minmax(0, 1fr));
+			}
+		}
+
+		@media (min-width: 680px) and (max-width: 999px) {
+			.gallery {
+				grid-template-columns: repeat(6, minmax(0, 1fr));
+			}
+
+			.span-3,
+			.span-4,
+			.span-5 {
+				grid-column: span 6;
+			}
+		}
+
+		@media (max-width: 679px) {
+			.gallery {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				margin-top: 4rem;
+			}
+
+			.gallery-items,
+			.gallery-card,
+			.span-1,
+			.span-2,
+			.span-3,
+			.span-4,
+			.span-5 {
+				grid-column: span 3;
+			}
+
+			.lightbox {
+				padding: 1rem;
+			}
+
+			.lightbox-panel {
+				width: 90%;
+				padding: 2.5rem 1.1rem 1.5rem;
+			}
+
+			.lightbox-content,
+			.lightbox-meta {
+				width: 100%;
+				max-width: 100%;
+			}
+
+			.lightbox-content {
+				width: auto;
+				max-width: 80%;
+			}
+
+			.lightbox-title {
+				font-size: 1.35rem;
+			}
 		}

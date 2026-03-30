@@ -1,0 +1,562 @@
+[
+  {
+    "title": "Rabbit with 4 eyes",
+    "year": 2025,
+    "tags": ["illustration","personal","comics"],
+    "images": [
+      "../assets/img/rabbit.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Anfisbena",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/anfi.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "Cat Portrait",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/shu.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "A guide to co-living with fantastic animals",
+    "year": 2025,
+    "tags": ["illustration","books"],
+    "description":"This is my graduation project, an educational picture book aimed at children aged 6 to 8, introducing various mythological creatures by illustrating scenarios and potential issues that might arise when living with them.",
+    "images": [
+      "../assets/img/copertine.jpg",
+      "../assets/img/tesi3.jpg",
+      "../assets/img/tesi4.jpg",
+      "../assets/img/tesi5.jpg",
+      "../assets/img/tesi2.png",
+      "../assets/img/tesi6.jpg",
+      "../assets/img/tesi1.png",
+      "../assets/img/tesi8.jpg",
+      "../assets/img/tesi9.jpg",
+      "../assets/img/tesi10.jpg",
+      "../assets/img/tesi12.jpg",
+      "../assets/img/tesi14.jpg",
+      "../assets/img/tesi16.jpg",
+      "../assets/img/tesi17.jpg",
+      "../assets/img/tesi19.jpg"   
+    ],
+    "imageLayouts": [
+      "span-3",
+      "span-2",
+      "span-2",
+      "",
+      "span-2",
+      "",
+      "span-4",
+      "span-3",
+      "",
+      "span-2",
+      "",
+      "",
+      "span-3",
+      "span-3",
+      "span-2"
+    ]
+  },
+  {
+    "title": "Human Needs Park",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/park.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "Series",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "description":"This series is an ongoing exploration where each illustration serves as an independent visual experiment.",
+    "images": [
+      "../assets/img/lumi01.jpg",
+      "../assets/img/lumi02.jpg",
+      "../assets/img/lumi03.jpg",
+      "../assets/img/lumi04.jpg",
+      "../assets/img/lumi05.jpg",
+      "../assets/img/lumi06.jpg",
+      "../assets/img/lumi07.jpg",
+      "../assets/img/lumi08.jpg",
+    ],
+    "imageLayouts": [
+      "span-2",
+      "",
+      "",
+      "span-2",
+      "",
+      "span-2",
+      "span-2",
+      "span-4"
+    ]
+  },
+  {
+    "title": "Tiangou eating the moon",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/tiangou.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "suica",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/suica.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Album cover For Moonsense",
+    "year": 2025,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/moonsense.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "Birdwatching Zine",
+    "year": 2025,
+    "tags": ["illustration","books"],
+    "description":"A compact, pocket-sized manual designed for on￾the-go utility. It features intuitive illustrations and a clear typographic hierarchy, translating complex birdwatching techniques into an accessible and engaging visual experience.",
+    "images": [
+      "../assets/img/birdwatching01.jpg",
+      "../assets/img/birdwatching02.jpg",
+      "../assets/img/birdwatching03.jpg",
+      "../assets/img/birdwatching04.jpg",
+      "../assets/img/birdwatching05.jpg",
+      "../assets/img/birdwatching06.jpg",
+      "../assets/img/birdwatching07.jpg",
+      "../assets/img/birdwatching08.jpg",
+      "../assets/img/birdwatching09.jpg",
+      "../assets/img/birdwatching10.jpg"
+    ],
+    "imageLayouts": [
+      "span-2",
+      "",
+      "span-4",
+      "span-2",
+      "",
+      "span-3",
+      "span-2",
+      "span-4",
+      "span-2",
+      "span-3"
+    ]
+  },
+  {
+    "title": "The bird od thousand birds",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/bird.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "The Words I Cannot Tell You",
+    "year": 2024,
+    "tags": ["illustration"],
+    "description":"An evocative illustration inspired by Paul B. Preciado's writings on the transgender experience within the family dynamic during pandemic confinement. The work serves as a visual exegesis of Preciado's text, articulating the palpable tension between identity, language, and familial affection.",
+    "images": [
+      "../assets/img/trans.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Food and body",
+    "year": 2024,
+    "tags": ["illustration"],
+    "description":"Concept-driven illustrations centered on the multifaceted theme of Food and Body. My focus was on capturing the palpable visceral tension of identity construction through appetite, incorporating both intrusive and harmonious composition to reflect on self-perception. Utilizing an affective palette of flesh tones and contrasting flavors, I aimed to provoke a dialogue on how food is not merely consumption but a powerful, often chaotic, form of embodied expression.",
+    "images": [
+      "../assets/img/food_and_body.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "People with masks",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/reflection.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "year of snake",
+    "year": 2025,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/year2025.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "Original character design",
+    "year": 2024,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/profile.jpg",
+      "../assets/img/oc.jpg"
+    ],
+    "imageLayouts": [
+      "",
+      "span-2"
+    ]
+  },
+  {
+    "title": "Anfisbena Knots",
+    "year": 2024,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/anfi6.jpg",
+      "../assets/img/anfi_doodle01.jpg",
+      "../assets/img/anfi_doodle02.jpg"
+    ],
+    "imageLayouts": [
+      "span-2",
+      "",
+      ""
+    ]
+  },
+  {
+    "title": "Pathfinder",
+    "year": 2024,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/pathfinder.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "Indecisive Penguin",
+    "year": 2024,
+    "tags": ["illustration","personal"],
+    "images": [
+      "../assets/img/penguin.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "The playbox",
+    "year": 2024,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/tapirulan2024.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "The pain of body",
+    "year": 2024,
+    "tags": ["illustration"],
+    "description":"A series of evocative illustrations created for the independent Italian magazine Lök Zine, exploring the multifaceted theme of 'Body'.",
+    "images": [
+      "../assets/img/body01.jpg",
+      "../assets/img/body02.jpg",
+      "../assets/img/body03.jpg"
+    ],
+    "imageLayouts": [
+      "span-4",
+      "span-2",
+      "span-4"
+    ]
+  },
+  {
+    "title": "Leggerezza/Lightness",
+    "year": 2023,
+    "tags": ["illustration"],
+    "description":"This conceptual illustration translates a fleeting moment of urban freedom. By contrasting the welcoming warmth of the station's interior with the enveloping dusk, I focused on capturing the kinetic energy of a girl dancing alone. The visual language utilizes fluid lines and soft rendering to communicate transient joy and grace. This project showcases my proficiency in utilizing dynamic composition and emotive coloring to tell a story within a single, poetic frame",
+    "images": [
+      "../assets/img/leggerezza.jpg"
+    ],
+    "imageLayouts": [
+      "span-2"
+    ]
+  },
+  {
+    "title": "Fun by the sea",
+    "year": 2024,
+    "tags": ["illustration","comics"],
+    "images": [
+      "../assets/img/fun_by_the_sea.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "Introduction",
+    "year": 2025,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/img187.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "Biblioteca",
+    "year": 2024,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/biblioteca.jpg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "L'uovo",
+    "year": 2022,
+    "tags": ["illustration"],
+    "description": "This is my undergraduate graduation project, a picture book about a young girl who suddenly decides to hatch an egg herself, exploring themes of family upheaval and trauma.",
+    "images": [
+      "../assets/img/tesi01.jpg",
+      "../assets/img/tesi02.jpg"
+    ],
+    "imageLayouts": [
+      "span-3",
+      "span-3"
+    ]
+  },
+  {
+    "title": "First Translation",
+    "year": 2023,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/firsttransation.jpg"
+    ],
+    "imageLayouts": [
+      "span-3"
+    ]
+  },
+  {
+    "title": "Moth",
+    "year": 2023,
+    "tags": ["illustration"],
+    "images": [
+      "../assets/img/moth.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Parasite",
+    "year": 2020,
+    "tags": ["illustration", "personal"],
+    "images": [
+      "../assets/img/parasite.jpeg"
+    ],
+    "imageLayouts": [
+      "span-4"
+    ]
+  },
+  {
+    "title": "Postcard",
+    "year": 2022,
+    "tags": ["illustration", "personal"],
+    "images": [
+      "../assets/img/tianqingle.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Girl with flamingo",
+    "year": 2020,
+    "tags": ["illustration", "personal"],
+    "images": [
+      "../assets/img/profile-img.png"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Studio",
+    "year": 2022,
+    "tags": ["illustration", "personal"],
+    "images": [
+      "../assets/img/studio.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Album cover",
+    "year": 2020,
+    "tags": ["illustration", "personal"],
+    "images": [
+      "../assets/img/shi.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "albo",
+    "year": 2022,
+    "tags": ["illustration", "books"],
+    "images": [
+      "../assets/img/albo01.jpg",
+      "../assets/img/albo02.jpg",
+    ],
+    "imageLayouts": [
+      "span-2",
+      "span-2"
+    ]
+  },
+ {
+    "title": "Fuoco",
+    "year": 2022,
+    "tags": ["illustration", "books"],
+    "images": [
+      "../assets/img/fuoco.jpg"
+    ],
+    "imageLayouts": [
+      ""
+    ]
+  },
+  {
+    "title": "Specchi di naufragi - Silvina Ocampo",
+    "year": 2020,
+    "tags": ["illustration", "books"],
+    "description": "A sequence of editorial illustrations developed created for the short story collection The Mirror of the Shipwreck by the Italian writer Silvina Ocampo.",
+    "images": [
+      "../assets/img/ocampo01.jpg",
+      "../assets/img/ocampo02.jpg",
+      "../assets/img/ocampo03.jpg",
+      "../assets/img/ocampo04.jpg",
+      "../assets/img/ocampo05.jpg"
+    ],
+    "imageLayouts": [
+      "",
+      "span-3",
+      "span-4",
+      "span-3",
+      "span-2"
+    ]
+  }
+  // Design part
+  // {
+  //   "title": "Books and Posters",
+  //   "year": 2024,
+  //   "tags": ["illustration", "books", "poster"],
+  //   "description": "Illustration work spanning posters, covers, and visual storytelling pieces.",
+  //   "images": [
+  //     "../assets/img/parasite01.jpeg",
+  //     "../assets/img/shi.jpg",
+  //     "../assets/img/banner.jpg",
+  //     "../assets/img/firsttransation.jpg",
+  //     "../assets/img/tianqingle.jpg",
+  //     "../assets/img/doodle01.jpg"
+  //   ],
+  //   "imageLayouts": [
+  //     "span-1",
+  //     "",
+  //     "span-3",
+  //     "span-2",
+  //     "span-4",
+  //     ""
+  //   ]
+  // },
+  // {
+  //   "title": "Profile and Study Work",
+  //   "year": 2023,
+  //   "tags": ["illustration", "personal"],
+  //   "description": "Personal studies and portrait-based illustration explorations.",
+  //   "images": [
+  //     "../assets/img/cutoff/profile-img-cut-off01.jpg",
+  //     "../assets/img/profile-img.png",
+  //     "../assets/img/ocampo03.jpg"
+  //   ],
+  //   "imageLayouts": [
+  //     "",
+  //     "span-2",
+  //     ""
+  //   ]
+  // },
+  // {
+  //   "title": "Graphic Design Experiments",
+  //   "year": 2024,
+  //   "tags": ["design", "branding", "print"],
+  //   "description": "A collection of graphic design and print-oriented experiments.",
+  //   "images": [
+  //     "../assets/img/tesi01.jpg",
+  //     "../assets/img/tesi02.jpg",
+  //     "../assets/img/fuoco.jpg",
+  //     "../assets/img/PlasticBag.jpg"
+  //   ],
+  //   "imageLayouts": [
+  //     "span-2",
+  //     "",
+  //     "span-3",
+  //     ""
+  //   ]
+  // },
+  // {
+  //   "title": "Material Studies",
+  //   "year": 2023,
+  //   "tags": ["installation", "material", "experiment"],
+  //   "description": "Material-driven visual studies that sit outside the illustration category.",
+  //   "images": [
+  //     "../assets/img/cr.jpg",
+  //     "../assets/img/doodle02.jpg",
+  //     "../assets/img/ocampo01.JPG"
+  //   ],
+  //   "imageLayouts": [
+  //     "",
+  //     "span-2",
+  //     ""
+  //   ]
+  // }
+]

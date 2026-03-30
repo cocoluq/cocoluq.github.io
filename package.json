@@ -1,0 +1,9 @@
+{
+  "name": "tantangent-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/render-site.mjs",
+    "dev": "node --watch scripts/render-site.mjs"
+  }
+}

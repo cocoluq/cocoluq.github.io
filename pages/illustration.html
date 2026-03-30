@@ -11,20 +11,23 @@
 		document.addEventListener('contextmenu', event => event.preventDefault());
 	</script>
 </head>
-<body>
+<body data-page-type="illustration" data-projects-url="../data/projects.json">
 <header>
 	<!--Navigation Bar-->
 	<nav class="navigation-bar">
       <ul>
-		  	<li><a href="/pages/about.html" class="about">ABOUT<span class="contact">/CONTACT</span></a></li>
-			<li><a href="/pages/illustration.html" class="illustration">ILLUSTRATION</a>
+		  	<li><a href="/pages/about.html" class="about">ABOUT<span class="contact">/CONTACT</span></a>
+		 	</li>
+		  	<li><a href="/pages/illustration.html" class="illustration nav-active">ILLUSTRATION</a>
 				<ul class="subtitle">
 		  			<li><a href="#books"><span class="slash">//</span>Books</a></li>
-				  	<li><a href="#personal works"><span class="slash">//</span>Personal works</a></li>
+		  			<li><a href="#personal works"><span class="slash">//</span>Personal works</a></li>
 		  		</ul>
 		 	</li>
-  			<li><a href="/pages/other_works.html" class="other-works">OTHER WORKS</a></li>
-			<li><a href="/pages/playground.html" class="playground">PLAYGROUND</a></li>
+		  	<li><a href="/pages/other_works.html" class="other-works">OTHER WORKS</a>
+		 	</li>
+		  	<li><a href="/pages/playground.html" class="playground">PLAYGROUND</a>
+		 	</li>
 	  </ul>		
 	</nav>  	
     <!--Logo&title-->
@@ -38,41 +41,24 @@
             </ul>
         </div>
 		<section class="container">
-			<div class="title-of-page">Illustration
-			<hr>
-				<div class="gallery">
-					<div class="gallery-items"><img src="../assets/img/cutoff/ocampo-cut-off02.jpg"></div>
-					<div class="gallery-items"><img src="../assets/img/cutoff/ocampo-cut-off03.jpg"></div>
-					<div class="gallery-items span-2"><img src="../assets/img/ocampo02.JPG"></div>
-					<div class="gallery-items"><img src="../assets/img/cutoff/ocampo-cut-off01.jpg"></div>
-					<div class="gallery-items"><img src="../assets/img/ocampo06.jpg"></div>
-					<div class="gallery-items"><img src="../assets/img/cutoff/ocampo-cut-off04.jpg"></div>
-					<a class="gallery-items" href="#books">
-						<div class="container-title">
-							<span class="title-of-works come-first">Books</span>
-							<span class="title-of-works come-second">Books</span>
+				<div class="gallery" data-gallery></div>
+				<p class="gallery-empty-state" data-gallery-empty hidden></p>
+				<div class="gallery-sentinel" data-gallery-sentinel hidden></div>
+				<p class="gallery-loading-note" data-gallery-loading hidden>Scroll for more</p>
+			<div class="lightbox" id="lightbox" aria-hidden="true" hidden>
+				<div class="lightbox-panel" data-lightbox-panel>
+					<button class="lightbox-close" type="button" aria-label="Close lightbox" data-lightbox-close>&times;</button>
+					<div class="lightbox-scroll" data-lightbox-scroll>
+						<div class="lightbox-gallery" data-lightbox-gallery></div>
+						<div class="lightbox-meta">
+							<h2 class="lightbox-title" data-lightbox-title></h2>
+							<p class="lightbox-tags" data-lightbox-tags></p>
+							<p class="lightbox-description" data-lightbox-description></p>
 						</div>
-					</a>
-					<div class="gallery-items span-1"><img src="../assets/img/parasite01.jpeg"></div>
-					<div class="gallery-items"><img src="../assets/img/shi.jpg"></div>
-					<div class="gallery-items span-3"><img src="../assets/img/banner.jpg"></div>
-					<div class="gallery-items"><img src="../assets/img/cutoff/profile-img-cut-off01.jpg"></div>
-					<div class="gallery-items span-2"><img src="../assets/img/firsttransation.jpg"></div>
-					<div class="gallery-items span-4"><img src="../assets/img/tianqingle.jpg"></div>
-					<a href="#personalWorks" class="gallery-items span-5">
-						<div class="container-title">
-							<span class="title-of-works">Personal Works</span>
-							<span class="title-of-works">Personal Works</span>
-						</div>
-					</a>
-					<div class="gallery-items"><img src="../assets/img/doodle01.jpg"></div>
-					<div class="gallery-items span-2"><img src="../assets/img/ocampo04.jpg"></div>
+					</div>
 				</div>
 			</div>
-			<div class="lightbox" id="lightbox">
-    <img src="" class="lightbox-content" id="lightbox-image">
-</div>
-<script src="../lightbox.js"></script>
+<script type="module" src="../assets/js/portfolio-page.js"></script>
 		</section>
 <footer>
 	<div class="footer"><p class="copyright">&copy; Tantangent. All rights reserved. <br>cocoluq@gmail.com</p></div>
