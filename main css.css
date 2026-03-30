@@ -20,6 +20,7 @@ html{
 
 body{
 	background-color: var(--beige);
+	overflow-x: hidden;
 }
 
 @font-face{
@@ -773,9 +774,157 @@ body{
 		}
 
 		@media (max-width: 679px) {
+			html {
+				font-size: 16px;
+			}
+
+			nav {
+				font-size: 8px;
+				padding: max(env(safe-area-inset-top), 0px) 0.9rem 0.55rem;
+				box-sizing: border-box;
+				background: rgba(233, 233, 225, 0.95);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				white-space: nowrap;
+			}
+
+			nav ul {
+				display: flex;
+				flex-wrap: nowrap;
+				gap: 0.75rem;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			nav li {
+				display: inline-flex;
+				min-width: 0;
+			}
+
+			nav li a {
+				display: inline-block;
+				line-height: 1;
+				padding: 0.1rem 0;
+				font-size: 8px;
+				letter-spacing: 0.02em;
+			}
+
+			.about,
+			.illustration,
+			.playground {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.subtitle {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.2rem 0.8rem;
+				margin-top: 0.2rem;
+				padding-left: 0;
+			}
+
+			.subtitle li {
+				display: block;
+				margin-left: 0;
+			}
+
+			nav .subtitle {
+				display: none;
+			}
+
+			body[data-page-type] > header {
+				position: sticky;
+				top: 0;
+				z-index: 140;
+				display: grid;
+				grid-template-columns: auto minmax(0, 1fr);
+				gap: 0.65rem 0.85rem;
+				align-items: center;
+				padding: max(env(safe-area-inset-top), 0px) 0.9rem 0.85rem;
+				background: rgba(233, 233, 225, 0.97);
+			}
+
+			body[data-page-type] > header nav {
+				position: static;
+				grid-column: 1 / -1;
+				grid-row: 2;
+				padding: 0;
+				background: transparent;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
+			}
+
+			body[data-page-type] > header .logo-but-smaller {
+				position: static;
+				width: 48px;
+				height: auto;
+				margin: 0;
+			}
+
+			body[data-page-type] > header .title-but-smaller {
+				margin: 0;
+				width: 64%;
+				font-size: 20px;
+				line-height: 0.92;
+				justify-self: center;
+				text-align: center;
+				word-break: break-word;
+				overflow-wrap: anywhere;
+			}
+
+			body:not([data-page-type]) .logo {
+				position: relative;
+				display: block;
+				width: 40px;
+				height: auto;
+				margin: 5.75rem auto 0.7rem;
+				right: auto;
+			}
+
+			body:not([data-page-type]) #title {
+				width: 64%;
+				margin: 0 auto;
+				font-size: 20px;
+				line-height: 0.9;
+				padding: 0;
+				word-break: break-word;
+				overflow-wrap: anywhere;
+			}
+
+			body:not([data-page-type]) .intro {
+				width: min(calc(100% - 2rem), 32rem);
+				font-size: 1rem;
+				letter-spacing: 0.04rem;
+			}
+
+			body:not([data-page-type]) .typewriter {
+				width: auto;
+				white-space: normal;
+				border-right: none;
+				animation: none;
+			}
+
+			.container {
+				width: min(calc(100% - 1.5rem), 42rem);
+				margin: 6.5rem auto 16vh auto;
+			}
+
+			.generic-page-title {
+				font-size: 2.35rem;
+				line-height: 2rem;
+				right: 0.5rem;
+				bottom: 0.5rem;
+				opacity: 0.45;
+			}
+
 			.gallery {
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				margin-top: 4rem;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				margin-top: 3rem;
+				grid-template-columns: none;
+				grid-auto-rows: auto;
 			}
 
 			.gallery-items,
@@ -785,7 +934,53 @@ body{
 			.span-3,
 			.span-4,
 			.span-5 {
-				grid-column: span 3;
+				grid-column: auto;
+				grid-row: auto;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.span-1 {
+				min-height: clamp(22rem, 88vw, 33rem);
+				aspect-ratio: 4 / 6;
+			}
+
+			.span-2 {
+				min-height: clamp(18rem, 68vw, 26rem);
+				aspect-ratio: 5 / 4;
+			}
+
+			.span-3 {
+				min-height: clamp(15rem, 52vw, 21rem);
+				aspect-ratio: 16 / 10;
+			}
+
+			.span-4 {
+				min-height: clamp(19rem, 74vw, 28rem);
+				aspect-ratio: 3 / 4;
+			}
+
+			.span-5 {
+				min-height: clamp(16rem, 58vw, 23rem);
+				aspect-ratio: 4 / 5;
+			}
+
+			.gallery-items:not(.span-1):not(.span-2):not(.span-3):not(.span-4):not(.span-5),
+			.gallery-card:not(.span-1):not(.span-2):not(.span-3):not(.span-4):not(.span-5) {
+				min-height: clamp(16rem, 60vw, 24rem);
+				aspect-ratio: 4 / 5;
+			}
+
+			.gallery img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+
+			.gallery-item-overlay {
+				padding: 1rem;
 			}
 
 			.lightbox {
@@ -822,6 +1017,8 @@ body{
 				padding-top: 0;
 				padding-right: 0;
 				margin-bottom: 4lh;
+				position: relative;
+				z-index: 1;
 			}
 
 			.lightbox-gallery-column {
@@ -829,6 +1026,9 @@ body{
 				min-height: auto;
 				overflow: visible;
 				padding-right: 0;
+				margin-top: 0;
+				position: relative;
+				z-index: 0;
 			}
 
 			.lightbox-content {
@@ -838,5 +1038,22 @@ body{
 
 			.lightbox-title {
 				font-size: 1.35rem;
+			}
+
+			.slideshow {
+				width: min(100%, 100vw);
+				height: min(62vh, 30rem);
+				margin: 1.5rem auto;
+			}
+
+			.slide {
+				padding: 0.8rem;
+			}
+
+			.nav-btn {
+				min-width: 3.5rem;
+				min-height: 3.5rem;
+				padding: 0.5rem;
+				font-size: 2.2rem;
 			}
 		}
