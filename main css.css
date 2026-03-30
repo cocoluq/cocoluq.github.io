@@ -673,6 +673,10 @@ body{
 			width: 100%;
 		}
 
+		.lightbox-inline-meta {
+			display: none;
+		}
+
 		.lightbox-image-frame {
 			margin: 0 0 2.5rem;
 			text-align: center;
@@ -1023,12 +1027,26 @@ body{
 
 			.lightbox-gallery-column {
 				order: 2;
+				display: block;
 				min-height: auto;
 				overflow: visible;
 				padding-right: 0;
 				margin-top: 0;
 				position: relative;
 				z-index: 0;
+			}
+
+			.lightbox-inline-meta {
+				display: block;
+				margin-bottom: 4lh;
+			}
+
+			.lightbox-inline-meta[hidden] {
+				display: none;
+			}
+
+			.lightbox-meta {
+				display: none;
 			}
 
 			.lightbox-content {

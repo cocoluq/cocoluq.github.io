@@ -338,6 +338,11 @@ ${gallerySection}
 					<button class="lightbox-close" type="button" aria-label="Close lightbox" data-lightbox-close>&times;</button>
 					<div class="lightbox-body">
 						<div class="lightbox-gallery-column" data-lightbox-scroll>
+							<div class="lightbox-inline-meta" data-lightbox-inline-meta hidden>
+								<h2 class="lightbox-title" data-lightbox-inline-title></h2>
+								<p class="lightbox-tags" data-lightbox-inline-tags></p>
+								<p class="lightbox-description" data-lightbox-inline-description></p>
+							</div>
 							<div class="lightbox-gallery" data-lightbox-gallery></div>
 						</div>
 						<div class="lightbox-meta">

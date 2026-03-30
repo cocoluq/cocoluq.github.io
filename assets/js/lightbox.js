@@ -16,6 +16,10 @@ export function createLightboxController(root) {
   const title = root.querySelector("[data-lightbox-title]");
   const tags = root.querySelector("[data-lightbox-tags]");
   const description = root.querySelector("[data-lightbox-description]");
+  const inlineMeta = root.querySelector("[data-lightbox-inline-meta]");
+  const inlineTitle = root.querySelector("[data-lightbox-inline-title]");
+  const inlineTags = root.querySelector("[data-lightbox-inline-tags]");
+  const inlineDescription = root.querySelector("[data-lightbox-inline-description]");
   const closeButton = root.querySelector("[data-lightbox-close]");
 
   function renderImages(item) {
@@ -56,6 +60,12 @@ export function createLightboxController(root) {
     title.textContent = item.title;
     tags.textContent = getTagsText(item.tags, item.year);
     description.textContent = item.description;
+    if (inlineMeta && inlineTitle && inlineTags && inlineDescription) {
+      inlineTitle.textContent = item.title;
+      inlineTags.textContent = getTagsText(item.tags, item.year);
+      inlineDescription.textContent = item.description;
+      inlineMeta.hidden = false;
+    }
     root.removeAttribute("hidden");
     root.classList.add("is-open");
     root.setAttribute("aria-hidden", "false");
