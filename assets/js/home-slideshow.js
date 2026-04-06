@@ -7,6 +7,7 @@ import {
 const SLIDE_LIMIT = 5;
 const SLIDE_INTERVAL = 1500;
 const DATA_URL = "data/projects.json";
+const ILLUSTRATION_PAGE_URL = "/pages/illustration.html";
 const lastModifiedCache = new Map();
 
 async function getImageLastModifiedTimestamp(src) {
@@ -74,7 +75,7 @@ function renderSlides(slidesEl, slides) {
   slidesEl.innerHTML = slides
     .map(
       (slide) =>
-        `<div class="slide"><img src="${slide.src}" alt="${slide.alt}" oncontextmenu="return false;"></div>`
+        `<div class="slide" role="link" tabindex="0" aria-label="Open illustration page"><img src="${slide.src}" alt="${slide.alt}" oncontextmenu="return false;"></div>`
     )
     .join("");
 }
@@ -91,6 +92,10 @@ function setupCarousel() {
   const dotsEl = document.getElementById("dots");
   if (!prevBtn || !nextBtn || !dotsEl) {
     return;
+  }
+
+  function openIllustrationPage() {
+    window.location.href = ILLUSTRATION_PAGE_URL;
   }
 
   slidesEl.style.transform = "translateX(0)";
@@ -111,6 +116,18 @@ function setupCarousel() {
   let timer = null;
 
   slides.forEach((_, i) => {
+    const slide = slides[i];
+    if (slide) {
+      slide.style.cursor = "pointer";
+      slide.addEventListener("click", openIllustrationPage);
+      slide.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openIllustrationPage();
+        }
+      });
+    }
+
     const dot = document.createElement("button");
     dot.className = `dot${i === 0 ? " active" : ""}`;
     dot.setAttribute("aria-label", `Slide ${i + 1}`);

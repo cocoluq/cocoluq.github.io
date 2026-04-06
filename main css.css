@@ -869,12 +869,13 @@ body{
 			body[data-page-type] > header .title-but-smaller {
 				margin: 0;
 				width: 64%;
-				font-size: 20px;
+				font-size: 16px;
 				line-height: 0.92;
 				justify-self: center;
 				text-align: center;
-				word-break: break-word;
-				overflow-wrap: anywhere;
+				white-space: nowrap;
+				word-break: normal;
+				overflow-wrap: normal;
 			}
 
 			body:not([data-page-type]) .logo {
@@ -889,11 +890,13 @@ body{
 			body:not([data-page-type]) #title {
 				width: 64%;
 				margin: 0 auto;
-				font-size: 20px;
+				font-size: 16px;
 				line-height: 0.9;
 				padding: 0;
-				word-break: break-word;
-				overflow-wrap: anywhere;
+				white-space: nowrap;
+				word-break: normal;
+				overflow-wrap: normal;
+				margin-bottom: 4lh;
 			}
 
 			body:not([data-page-type]) .intro {
